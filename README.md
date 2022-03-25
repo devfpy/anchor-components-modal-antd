@@ -13,16 +13,103 @@ npm install --save anchor-components-modal-antd
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Button } from 'antd';
+import { ModalComponents } from 'anchor-components-modal-antd';
 
-import MyComponent from 'anchor-components-modal-antd'
-import 'anchor-components-modal-antd/dist/index.css'
+export default class App extends Component {
+    handleButtonOnClick = () => {
+        this.myModal.openModal();
+    };
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+    handleModalOnClosed = () => {
+        console.log('.......... modal closed');
+    };
+
+    handleModalOnOk = () => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve({ message: '' });
+            }, 2000);
+        });
+    };
+
+    render() {
+        return (
+            <div style={{ padding: 16 }}>
+                <Button type={'primary'} onClick={this.handleButtonOnClick}>
+                    弹窗
+                </Button>
+
+                <ModalComponents
+                    ref={(node) => (this.myModal = node)}
+                    title={'弹窗标题'}
+                    hasMask={true}
+                    width={'760px'}
+                    height={'380px'}
+                    okText={'确定'}
+                    cancelText={'关闭'}
+                    // okButtonLoading={confirming}
+                    onClose={this.handleModalOnClosed}
+                    onCancel={this.handleModalOnClosed}
+                    onClosed={this.handleModalOnClosed}
+                    onOk={this.handleModalOnOk}
+                >
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+                    <div>我是弹窗内容</div>
+
+                    <div>我是弹窗内容</div>
+
+                    <div>我是弹窗内容</div>
+                </ModalComponents>
+            </div>
+        );
+    }
 }
+
 ```
 
 ## License
